@@ -4,6 +4,11 @@ import argparse, urllib2, datetime, re, os
 DESTINATION = "/Users/gem/Pictures/NASA/"
 
 
+# Features to add:
+#   Make it less Gem-centric by adding the ability to specify the target
+#   directory or something.
+
+
 """
 Default: Grab today's APoD.
 Options:
@@ -54,7 +59,7 @@ else:
         dates = [datetime.date(*args.date)]
 
 # Actually download the appropriate files.
-pattern = re.compile(r'<a href="(image/.+(\.\w+))">')
+pattern = re.compile(r'<a href="(image/.+(\.\w+))"')
 for date in dates:
     print "Date:        {}".format(date)
     url = "http://apod.nasa.gov/apod/ap{:%y%m%d}.html".format(date)
