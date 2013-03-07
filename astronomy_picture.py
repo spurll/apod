@@ -18,10 +18,11 @@ Options:
 
 parser = argparse.ArgumentParser(description="Fetches NASA's Astronomy "
                                  "Picture of the Day.")
-parser.add_argument("-d", "--date", help="The date of the APoD to fetch, in "
+group = parser.add_mutually_exclusive_group()
+group.add_argument("-d", "--date", help="The date of the APoD to fetch, in "
                     "YYYY MM DD format.", type=int, nargs=3, metavar=("YYYY",
                     "MM", "DD"), default=datetime.date.today())
-parser.add_argument("-n", "--new", help="Downloads all new APoDs since the "
+group.add_argument("-n", "--new", help="Downloads all new APoDs since the "
                     "most recent APoD on file.", action="store_true")
 args = parser.parse_args()
 
