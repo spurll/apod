@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Written by Gem Newman. This work is licensed under a Creative Commons
 # Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -88,9 +90,9 @@ for date in dates:
             response = urllib2.urlopen(url)
 
             file_name = "NASA {:%Y %m %d}{}".format(date, ext)
-            destination = "".join([destination, file_name])
-            print "Destination: {}".format(destination)
-            local_file = open(destination, "w")
+            file_destination = "".join([destination, file_name])
+            print "Destination: {}".format(file_destination)
+            local_file = open(file_destination, "w")
 
             # Write the remote data to the local file.
             local_file.write(response.read())
